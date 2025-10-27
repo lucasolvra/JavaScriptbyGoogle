@@ -1,38 +1,31 @@
 function contar() {
-    var n1 = document.getElementById('inicio')
-    var n2 = document.getElementById('fim')
-    var n3 = document.getElementById('passo')
-    var res = document.getElementById('res')
+    let ini = document.getElementById('txti')
+    let fim = document.getElementById('txtf')
+    let pas = document.getElementById('txtp')
+    let res = document.getElementById('res')
 
-    if (n3.value > n2.value) {
-        alert('Passo inválido! Considerando PASSO 1')
-    } else if (n1.value == '' || n3.value == '') {
-        res.innerHTML = 'Preencha todos os campos!'
-    } else if (n2.value >= n1.value || n3.value >= n2.value) {
-        res.innerHTML = 'Digite um número válido!'
+
+    if (ini.value.length == 0 || fim.value.length == 0 || pas.value.length === 0) {
+        //alert('[ERRO] Faltam dados!')
+        res.innerHTML = 'Impossível contar!'
     } else {
-        for (var n1 = 1; n1.value < n2.value; n1++) {
-            res.innerHTML = `${n1}`
+        res.innerHTML = 'Contando: <br>'
+        let i = Number(ini.value)
+        let f = Number(fim.value)
+        let p = Number(pas.value)
+        if (p <= 0 || Number('')) {
+            alert('Passo inválido. Considerando Passo 1')
+            p = 1
         }
+        if (i < f) {
+            for(let c = i; c <= f; c += p) {
+                res.innerHTML += ` ${c} \u{1F449}`
+            }
+        } else {
+            for(let c = i; c >= f; c -= p) {
+                res.innerHTML += ` ${c} \u{1F449}`
+            }
+        } 
+        res.innerHTML += `\u{1F3C1}`
     }
 }
-
-
-    /* var n1 = document.getElementById('inicio')
-    var n2 = document.getElementById('fim')
-    var n3 = document.getElementById('passo')
-    var res = document.getElementById('res')
-
-
-    if (n3.value > n2.value) {
-        alert('Passo inválido! Considerando PASSO 1')
-    } else if (n1.value == '' || n3.value == '') {
-        res.innerHTML = 'Digite um número!'
-    } else if (n2.value >= n1.value || n2.value >= n3.value) {
-        res.innerHTML = 'Digite um número válido!'
-    } else if (for (let n1)) */
-
-
-/*for (var n = 1; n <= 20; n++) {
-    console.log(n);
-}*/
