@@ -1,6 +1,17 @@
-for (var c = 1; c <= 6; c++) {
-    console.log (`Passo ${c}`)
+function parimp(n) {
+    if (n % 2 == 0) {
+        return 'Par'
+    } else {
+        return 'Ímpar'
+    }
 }
+let res = parimp(11)
+console.log(res)
+
+
+/* for (var c = 1; c <= 6; c++) {
+    console.log (`Passo ${c}`)
+}*/
 
 /* var c = 1
 do {
