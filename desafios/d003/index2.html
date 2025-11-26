@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antes e Depois</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #botao1 {
+            width: 165px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Antes e depois</h1>
+        <div>
+            <input type="button" value="Antecessor e Sucessor" onclick="clicar()" id="botao1">
+        </div>
+    </main>
+    <script>
+        function clicar() {
+            let num = Number.parseInt(prompt('Digite um número inteiro qualquer'))
+            //let n = Number.parseInt(num.value)
+            alert(`Antes de ${num}, temos o número ${num-1}.\nDepois de ${num}, temos o número ${num+1}.`)
+        }
+    </script>
+</body>
+</html>

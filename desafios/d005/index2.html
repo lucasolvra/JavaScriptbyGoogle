@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de medidas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #botao1 {
+            width: 100px;
+            height: 60px;
+        }
+
+        #res {
+            font-weight: bold;
+            font-size: 1.5em;
+            line-height: 2em;
+        }
+
+        #conv {
+            list-style: none;
+            padding-left: 0px;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Conversor de Medidas</h1>
+        <div>
+            <input type="button" value="Converter" onclick="clicar()" id="botao1">
+        </div>
+        <div id="res">
+        </div>
+        <div>
+            <ul id="conv">
+                
+            </ul>
+        </div>
+    </main>
+    <script>
+        function clicar() {
+            let m = Number(prompt('Digite uma distância em metros (m)'))
+            m
+            let res = document.getElementById('res')
+            let conv = document.getElementById('conv')
+
+            res.innerHTML = `A distância de ${m} metros, corresponde a...`
+            conv.innerHTML = `<li>${m} quilômetros (Km)`
+            conv.innerHTML += `<li>${m} hectômetros (Hm)`
+            conv.innerHTML += `<li>${m} decâmetros (Dm)`
+            conv.innerHTML += `<li>${m} decímetros (dm)`
+            conv.innerHTML += `<li>${m} centímetros (cm)`
+            conv.innerHTML += `<li>${m} milímetros (mm)`
+        }
+    </script>
+</body>
+</html>
