@@ -13,48 +13,52 @@
             width: 100px;
             height: 60px;
         }
-
-        #res {
-            font-weight: bold;
-            font-size: 1.5em;
-            line-height: 2em;
-        }
-
-        #conv {
-            list-style: none;
-            padding-left: 0px;
-            margin-top: 0px;
-        }
     </style>
 </head>
 <body>
-    <main>
-        <h1>Conversor de Medidas</h1>
-        <div>
-            <input type="button" value="Converter" onclick="clicar()" id="botao1">
-        </div>
-        <div id="res">
-        </div>
-        <div>
-            <ul id="conv">
-                
-            </ul>
-        </div>
-    </main>
+    <h1>Conversor de Medidas</h1>
+    <div>
+        <input type="button" value="Converter" onclick="clicar()" id="botao1">
+    </div>
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+
     <script>
         function clicar() {
-            let m = Number(prompt('Digite uma distância em metros (m)'))
-            m
-            let res = document.getElementById('res')
-            let conv = document.getElementById('conv')
+            let input = prompt('Digite uma distância em metros (m)');
 
-            res.innerHTML = `A distância de ${m} metros, corresponde a...`
-            conv.innerHTML = `<li>${m} quilômetros (Km)`
-            conv.innerHTML += `<li>${m} hectômetros (Hm)`
-            conv.innerHTML += `<li>${m} decâmetros (Dm)`
-            conv.innerHTML += `<li>${m} decímetros (dm)`
-            conv.innerHTML += `<li>${m} centímetros (cm)`
-            conv.innerHTML += `<li>${m} milímetros (mm)`
+            if (input === null || input.trim() === "") {
+                return;
+            }
+
+            let metros = parseFloat(input.replace(',','.'));
+
+            if (isNaN(metros)) {
+                alert("Por favor, digite um número válido.");
+                return;
+            }
+
+            let km = metros / 1000;
+            let hm = metros / 100;
+            let dam = metros / 10;
+            let dm = metros * 10;
+            let cm = metros * 100;
+            let mm = metros * 1000;
+
+            const formatar = (n) => n.toLocaleString('pt-BR');
+
+            let res = document.querySelector('section#resultado');
+
+            res.innerHTML = `
+            <h2>A distância de ${formatar(metros)} metros, corresponde a...</h2>
+            <p>${formatar(km)} quilômetros (Km)</p>
+            <p>${formatar(hm)} hectômetros (Hm)</p>
+            <p>${formatar(dam)} decâmetros (Dam)</p>
+            <p>${formatar(dm)} decímetros (dm)</p>
+            <p>${formatar(cm)} centímetros (cm)</p>
+            <p>${formatar(mm)} milímetros (mm)</p>
+            `;
         }
     </script>
 </body>

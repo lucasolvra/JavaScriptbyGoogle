@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperaturas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #bot1 {
+            width: 100px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <input type="button" value="Converter" onclick="converter()" id="bot1">
+
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+
+    <script>
+        function converter() {
+            let input = prompt('Digite uma temperatura em Cº (Celsius)')
+
+            if (input === null || input.trim() === "") {
+                return;
+            }
+            
+            let celsius = parseFloat(input.replace(',','.'));
+
+            if (isNaN(celsius)) {
+                alert('Digite um número válido!')
+                return;
+            }
+            
+            kv = celsius + 273,15;
+            fh = (celsius * 9/5) + 32;
+            
+            
+            //const formatar = (n) => n.toLocaleString('pt-BR');
+            
+            let res = document.querySelector('section#resultado');
+            
+            res.innerHTML = `
+            <h2>A temperatura de ${celsius.toLocaleString('pt-BR')}ºC, corresponde a...</h2>
+            <p>${kv}ºK (Kelvin)</p>
+            <p>${fh}ºF (Fahrenheit)</p>
+            `;
+        }
+    </script>
+</body>
+</html>
