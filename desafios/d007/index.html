@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ -> US$</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #bot1 {
+            width: 100px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body onload="dolar()">
+    <h1>Conversor R$ &rarr; US$</h1>
+    <input type="button" value="Converter" id="bot1" onclick="clicar()">
+    
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+
+    <script>
+        function dolar() {
+            while (true) {
+                let hoje = prompt('Antes de mais nada. Quanto está a cotação do dólar agora?');
+            
+                if (hoje === null || hoje.trim() === "") {
+                alert("Operação cancelada.")
+                break;
+                }
+
+                var dlr = Number(hoje);
+            
+                if (!isNaN(dlr) && hoje.trim() !=='') {
+                //alert(`Você digitou o número: ${dlr}. Obrigado!`);
+                break;
+                } else {
+                alert("Entrada inválida. Por favor, digite um número válido!");
+                }
+            }
+        }
+
+        function clicar() {
+            let wllt = prompt('Quantos R$ você tem na carteira?');
+
+            if (wllt === null || wllt.trim() === "") {
+                return;
+            }
+
+            let rs = Number(wllt);
+
+            if (isNaN(rs)) {
+                alert('Digite um número válido!');
+            }
+
+            let s = rs * dlr
+
+            let res = document.querySelector('section#resultado');
+
+            res.innerHTML = `
+            <h2>Saldo na carteira: R$${rs}. Cotação atual: $${dlr}</h2>
+            <p>Com R$${rs}, você vai conseguir comprar $${s.toFixed(2)} dólares.</p>
+            `;
+        }
+    </script>
+</body>
+</html>
