@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de medidas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #botao1 {
+            width: 100px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <div>
+        <input type="button" value="Converter" onclick="clicar()" id="botao1">
+    </div>
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+
+    <script>
+        function clicar() {
+            let dist = prompt('Digite uma distância em metros (m)');
+
+            dist.replace(',','.');
+
+            let met = parseFloat(dist);
+
+            if (dist === null || dist === '') {
+            return;
+            }
+
+            if (isNaN(met)) {
+                alert('Digite um número válido!');
+                return;
+            }
+
+            km = met / 1000;
+            hm = met / 100;
+            dam = met / 10;
+            dm = met * 10;
+            cm = met * 100;
+            mm = met * 1000;
+
+            let res = document.querySelector('section#resultado');
+
+            res.innerHTML = `
+            <h2>A distância de ${met.toLocaleString('PT-BR')} metros, corresponde a...</h2>
+            <p>${km} quilômetros (Km)</p>
+            <p>${hm} hectômetros (Hm)</p>
+            <p>${dam} decâmetros (Dam)</p>
+            <p>${dm} decímetros (dm)</p>
+            <p>${cm} centímetros (cm)</p>
+            <p>${mm} milímetros (mm)</p>
+            `
+        }
+    </script>
+</body>
+</html>

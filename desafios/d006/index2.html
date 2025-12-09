@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperaturas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #bot1 {
+            width: 100px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <input type="button" value="Converter" onclick="converter()" id="bot1">
+
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+
+    <script>
+        function converter() {
+            let temp = prompt('Digite uma temperatura em ºC (Celsius)');
+
+            if (temp === null || temp === '') {
+            return;
+            }
+
+            let clss = parseFloat(temp);
+
+            if (isNaN(clss)) {
+                alert('Digite um número válido!');
+                return;
+            }
+
+            let kv = clss + 273.15;
+            let frh = clss * 1.8 + 32;
+
+            let res = document.querySelector('section#resultado');
+
+            res.innerHTML = `
+            <h2>A temperatura de ${clss}ºC, corresponde a...</h2>
+            <p>${kv.toFixed(2)}ºK (Kelvin)</p>
+            <p>${frh}ºF (Fahrenheit)</p>
+            `;
+        }
+    </script>
+</body>
+</html>
