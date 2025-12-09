@@ -25,10 +25,10 @@
 
     <script>
         function dolar() {
-            let hoje = 0
+            let dlr = 0
 
             while (true) {
-                hoje = prompt('Antes de mais nada. Quanto está a cotação do dólar agora?');
+                let hoje = prompt('Antes de mais nada. Quanto está a cotação do dólar agora?');
             
                 if (hoje === null || hoje.trim() === "") {
                 alert("Operação cancelada.");
@@ -36,6 +36,8 @@
                 }
 
                 parseFloat(hoje);
+
+                let dlr = dlr + hoje
             
                 if (!isNaN(hoje) && hoje.trim() !=='') {
                 //alert(`Você digitou o número: ${dlr}. Obrigado!`);
@@ -60,11 +62,11 @@
             }
 
             //let s = rs * hoje;
-
+            
             let res = document.querySelector('section#resultado');
 
             res.innerHTML = `
-            <h2>Saldo na carteira: R$${rs}. Cotação atual: $${hoje}</h2>
+            <h2>Saldo na carteira: R$${rs}. Cotação atual: $${dlr}</h2>
             <p>Com R$${rs}, você vai conseguir comprar $ dólares.</p>
             `;
         }
