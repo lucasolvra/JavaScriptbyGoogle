@@ -15,32 +15,30 @@
         }
     </style>
 </head>
-<body onload="dolar()">
+<body onload="definirCotacao()">
     <h1>Conversor R$ &rarr; US$</h1>
-    <input type="button" value="Converter" id="bot1" onclick="clicar()">
+    <input type="button" value="Converter" id="bot1" onclick="converter()">
     
     <section id="resultado">
         <p>Clique no botão acima para iniciar.</p>
     </section>
 
     <script>
-        function dolar() {
-            let dlr = 0
+        let cotacao = 0;
 
+        function definirCotacao() {
             while (true) {
-                let hoje = prompt('Antes de mais nada. Quanto está a cotação do dólar agora?');
+                let input = prompt('Antes de mais nada. Quanto está a cotação do dólar agora?');
             
-                if (hoje === null || hoje.trim() === "") {
+                if (input === null || input.trim() === "") {
                 alert("Operação cancelada.");
                 break;
                 }
 
-                parseFloat(hoje);
-
-                let dlr = dlr + hoje
+                let valorFormatado = parseFloat(input.replace(',','.'));
             
-                if (!isNaN(hoje) && hoje.trim() !=='') {
-                //alert(`Você digitou o número: ${dlr}. Obrigado!`);
+                if (!isNaN(valorFormatado)) {
+                    cotacao = valorFormatado;
                 break;
                 } else {
                 alert("Entrada inválida. Por favor, digite um número válido!");
@@ -48,26 +46,34 @@
             }
         }
 
-        function clicar() {
-            let wllt = prompt('Quantos R$ você tem na carteira?');
+        function converter() {
+            if (cotacao === 0) {
+                alert('A cotação do dólar não foi definida!');
+                definirCotacao();
+                if (cotacao === 0) return;
+            }
 
-            if (wllt === null || wllt.trim() === "") {
+            let inputCarteira = prompt('Quantos R$ você tem na carteira?');
+
+            if (inputCarteira === null || inputCarteira.trim() === "") {
                 return;
             }
 
-            let rs = Number(wllt);
+            let reais = parseFloat(inputCarteira.replace(',','.'));
 
-            if (isNaN(rs)) {
+            if (isNaN(reais)) {
                 alert('Digite um número válido!');
+                return;
             }
 
-            //let s = rs * hoje;
+            let dolares = reais / cotacao;
             
             let res = document.querySelector('section#resultado');
 
             res.innerHTML = `
-            <h2>Saldo na carteira: R$${rs}. Cotação atual: $${dlr}</h2>
-            <p>Com R$${rs}, você vai conseguir comprar $ dólares.</p>
+            <h2>Saldo na carteira: ${reais.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})}</h2>
+            <h2>Cotação atual: ${cotacao.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})}</h2>
+            <p>Com ${reais.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})}, você vai conseguir comprar ${dolares.toLocaleString('pt-BR', {style:'currency', currency: 'USD'})} dólares.</p>
             `;
         }
     </script>
