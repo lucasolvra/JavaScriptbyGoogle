@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste salário</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #bot1 {
+            width: 160px;
+            height: 60px;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <h1>Reajuste salarial</h1>
+    <input type="button" value="Reajustar Salário" id="bot1" onclick="reajustar()">
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+
+    <script>
+        function reajustar() {
+            let inputNome = prompt('Qual é o nome do funcionário?');
+            
+            let inputSalario = prompt('Qual é o salário de ' + inputNome + '?');
+            
+            let inputPct = prompt('O salário de '+ inputNome + ' vai ser reajustado em qual porcentagem?');
+
+            const dadosDoUsuarios = [inputNome, inputSalario, inputPct];
+            
+            if (dadosDoUsuarios === null || dadosDoUsuarios === '') {
+                alert('Dados incompletos. Operação cancelada!');
+            }
+            
+            /*if (isNaN(inputNome)) {
+            return;
+            } else {
+                alert('Digite um nome válido!')
+            }*/
+            
+           let salarioReal = parseFloat(inputSalario.replace(',','.'));
+           let porcentagem = parseFloat(inputPct.replace(',','.'));
+
+            if (!isNaN(inputSalario)) {
+                return;
+            } else {
+                alert('Digite um número válido!')
+            }
+
+            let salarioFinal = salarioReal * (porcentagem / 100);
+
+            let res = document.querySelector('section#resultado');
+
+            res.innerHTML = `
+            <h2>${inputNome} recebeu um aumento salarial!</h2>
+            <p>O salário atual era ${salarioReal}.</p>
+            <p>Com um aumento de ${porcentagem}%, o salário vai aumentar ${salarioFinal - salarioReal} no próximo mês.</p>
+            <p>E a partir daí, ${inputNome} vai passar a ganhar ${salarioFinal}.</p>
+            `
+        }
+    </script>
+</body>
+</html>
