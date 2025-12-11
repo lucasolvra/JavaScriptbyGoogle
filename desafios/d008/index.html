@@ -26,41 +26,44 @@
     <script>
         function reajustar() {
             let inputNome = prompt('Qual é o nome do funcionário?');
+
+            if (inputNome === null || inputNome.trim() === '') {
+                alert('Operação cancelada! Você precisa digitar um nome.');
+                return;
+            }
             
             let inputSalario = prompt('Qual é o salário de ' + inputNome + '?');
+
+            if (inputSalario === null || inputSalario.trim() === '') {
+                alert('Operação cancelada. Você precisa digitar um número válido!');
+                return;
+            }
             
             let inputPct = prompt('O salário de '+ inputNome + ' vai ser reajustado em qual porcentagem?');
 
-            const dadosDoUsuarios = [inputNome, inputSalario, inputPct];
-            
-            if (dadosDoUsuarios === null || dadosDoUsuarios === '') {
-                alert('Dados incompletos. Operação cancelada!');
+            if (inputPct === null || inputPct.trim() === '') {
+                alert('Operação cancelada. Você precisa digitar um número válido!');
+                return;
             }
-            
-            /*if (isNaN(inputNome)) {
-            return;
-            } else {
-                alert('Digite um nome válido!')
-            }*/
-            
+
            let salarioReal = parseFloat(inputSalario.replace(',','.'));
            let porcentagem = parseFloat(inputPct.replace(',','.'));
 
-            if (!isNaN(inputSalario)) {
+            if (isNaN(salarioReal) || isNaN(porcentagem)) {
+                alert('Por favor, digite apenas números válidos!');
                 return;
-            } else {
-                alert('Digite um número válido!')
             }
 
-            let salarioFinal = salarioReal * (porcentagem / 100);
+            let valorAumento = salarioReal * (porcentagem / 100);
+            let salarioFinal = salarioReal + valorAumento;
 
             let res = document.querySelector('section#resultado');
 
             res.innerHTML = `
             <h2>${inputNome} recebeu um aumento salarial!</h2>
-            <p>O salário atual era ${salarioReal}.</p>
-            <p>Com um aumento de ${porcentagem}%, o salário vai aumentar ${salarioFinal - salarioReal} no próximo mês.</p>
-            <p>E a partir daí, ${inputNome} vai passar a ganhar ${salarioFinal}.</p>
+            <p>O salário atual era ${salarioReal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}.</p>
+            <p>Com um aumento de ${porcentagem}%, o salário vai aumentar ${valorAumento.toLocaleString('pt-BR', {style:"currency", currency: 'BRL'})} no próximo mês.</p>
+            <p>E a partir daí, ${inputNome} vai passar a ganhar ${salarioFinal.toLocaleString('pt-BR', {style:"currency", currency: 'BRL'})}.</p>
             `
         }
     </script>
