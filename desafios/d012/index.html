@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #bot1 {
+            width: 100px;
+            height: 60px;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <input type="button" value="Verificar" id="bot1" onclick="verificar()">
+    <section id="resultado">
+        <p>Clique no botão acima para analisar a mudança de preço.</p>
+    </section>
+
+    <script>
+        function verificar() {
+            let inputAntes = prompt('Qual era o preço anterior do produto?');
+            if (inputAntes === null || inputAntes.trim() === '') {
+                alert('Operação cancelada!');
+                return;
+            }
+
+            let inputAtual = prompt('Qual é o preço atual do produto?');
+            if (inputAtual === null || inputAtual.trim() === '') {
+                alert('Operação cancelada!');
+                return;
+            }
+
+            let precoAntes = parseFloat(inputAntes.replace(',','.'));
+            let precoAtual = parseFloat(inputAtual.replace(',','.'));
+
+            if (isNaN(precoAntes)) {
+                alert('Digite um número válido!');
+                return;
+            }
+
+            if (isNaN(precoAtual)) {
+                alert('Digite um número válido!');
+                return;
+            }
+
+            let precoSubiu = precoAtual - precoAntes;
+            let precoCaiu = precoAntes - precoAtual;
+            let porcentagemSubiu = precoAtual * 100 / precoAntes - 100;
+            let porcentagemCaiu = precoAntes * 100 / precoAtual - 100;
+
+            let res = document.querySelector('section#resultado');
+            
+            res.innerHTML = `
+            <h2>Analisando os valores informados</h2>`;
+
+            if (precoAntes > precoAtual) {
+                res.innerHTML += `
+                <p>O produto custava ${precoAntes.toLocaleString('pt-BR', {style:"currency", currency: 'BRL'})} e agora custa ${precoAtual.toLocaleString('pt-BR', {style:"currency", currency: 'BRL'})}.</p>
+                <p>Hoje o produto está barato.</p>
+                <p>O preço diminuiu ${precoCaiu.toLocaleString('pt-BR', {style:"currency", currency: 'BRL'})} em relação ao preço anterior.</p>
+                <p>Uma variação de ${porcentagemCaiu.toFixed(1)}% para baixo.</p>
+                `;
+            } else {
+                res.innerHTML += `
+                <p>O produto custava ${precoAtual.toLocaleString('pt-BR', {style:"currency", currency: 'BRL'})} e agora custa ${precoAntes.toLocaleString('pt-BR', {style:"currency", currency: 'BRL'})}.</p>
+                <p>Hoje o produto está caro.</p>
+                <p>O preço subiu ${precoSubiu.toLocaleString('pt-BT', {style:"currency", currency: 'BRL'})} em relação ao preço anterior.</p>
+                <p>Uma variação de ${porcentagemSubiu.toFixed(1)}% para cima.</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
