@@ -33,6 +33,11 @@
 
             let ano = parseFloat(inputAno);
 
+            if (isNaN(ano)) {
+                alert('Digite um número válido!');
+                return;
+            }
+
             let anoBissexto = ano % 4;
 
             let res = document.querySelector('section#resultado');
