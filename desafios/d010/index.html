@@ -20,11 +20,57 @@
     <h1>Resolvendo Bhaskara</h1>
     <input type="button" value="Calcular" id="bot1" onclick="calcular()">
     <section id="resultado">
-        <p>Clique no botão acima para iniciar.</p>
+        <p>Considerando uma equação no formato <strong>ax² + bx + c = 0</strong>, aperte o botão acima para calcular o valor de &Delta;.</p>
     </section>
 
     <script>
-        
+        function calcular() {
+            let inputA = prompt('Qual é o valor de a?');
+            if (inputA === null || inputA.trim() === '') {
+                alert('Operação cancelada. Digite um número!');
+                return;
+            }
+
+            let inputB = prompt('Qual é o valor de b?');
+            if (inputB === null || inputB.trim() === '') {
+                alert('Operação cancelada. Digite um número!');
+                return;
+            }
+
+            let inputC = prompt('Qual é o valor de c?');
+            if (inputC === null || inputC.trim() === '') {
+                alert('Operação cancelada. Digite um número!');
+                return;
+            }
+
+            let aValue = parseInt(inputA);
+            let bValue = parseInt(inputB);
+            let cValue = parseInt(inputC);
+
+            if (isNaN(inputA)) {
+                alert('Digite um número válido!');
+                return;
+            }
+            if (isNaN(inputB)) {
+                alert('Digite um número válido!');
+                return;
+            }
+            if (isNaN(inputC)) {
+                alert('Digite um número válido!');
+                return;
+            }
+
+            let somaFinal = (bValue * bValue) - 4 * aValue * cValue;
+
+            let res = document.querySelector('section#resultado');
+
+            res.innerHTML = `
+            <h2>Resolvendo Bhaskara</h2>
+            <p>A equação atual é <strong>${aValue}x² + ${bValue}x + ${cValue} = 0</strong></p>
+            <p>O cálculo realizado será <strong>&Delta; = 6² - 4 . 3 . 2</strong></p>
+            <p>O valor calculado foi <strong>&Delta; = ${somaFinal}</strong></p>
+            `;
+        }
     </script>
 </body>
 </html>
