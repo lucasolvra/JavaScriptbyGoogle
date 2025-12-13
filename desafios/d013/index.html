@@ -10,7 +10,7 @@
         }
 
         #bot1 {
-            width: 100px;
+            width: 200px;
             height: 60px;
         }
     </style>
@@ -18,14 +18,75 @@
 </head>
 <body>
     <h1>Situação do aluno</h1>
-    <input type="button" value="Verificar" id="bot1" onclick="verificar()">
+    <input type="button" value="Entrar com as notas" id="bot1" onclick="verificar()">
     <section id="resultado">
         <p>Clique no botão acima para informar as notas do aluno.</p>
     </section>
 
     <script>
         function verificar() {
+            let inputNome = prompt('Qual é o nome do aluno?');
+            if (inputNome === null || inputNome.trim() === '') {
+                alert('Operação cancelada!');
+                return;
+            }
+
+            if (!isNaN(inputNome)) {
+                alert('Digite um nome válido!');
+                return;
+            }
+
+            let inputNota1 = prompt('Primeira nota de '+ inputNome +':');
+            if (inputNota1 === null || inputNota1.trim() === '') {
+                alert('Operação cancelada!');
+                return;
+            }
+
+            let inputNota2 = prompt('Segunda nota de '+ inputNome +':');
+            if (inputNota2 === null || inputNota2.trim() === '') {
+                alert('Operação cancelada!');
+                return;
+            }
+
+            let nota1 = parseFloat(inputNota1.replace(',','.'));
+            let nota2 = parseFloat(inputNota2.replace(',','.'));
+
+            if (isNaN(nota1)) {
+                alert('Digite um número válido!');
+                return;
+            }
+
+            if (isNaN(nota2)) {
+                alert('Digite um número válido!');
+                return;
+            }
+
+            let notaMedia = (nota1 + nota2) / 2;
+
+            let res = document.querySelector('section#resultado');
+
+            res.innerHTML = `<h2>Analisando a situação de ${inputNome}</h2>`;
+
+            if (notaMedia > 6) {
+                res.innerHTML += `
+                <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${notaMedia}</strong></p>
+                <p>Com média acima de 6,0, o aluno está <strong style="background-color: lightgreen; color: green;">APROVADO</strong></p>
+                `;
+            }
+
+            if (notaMedia >= 3 && notaMedia <= 6) {
+                res.innerHTML += `
+                <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${notaMedia}</strong></p>
+                <p>Com média entre 3,0 e 6,0, o aluno está em <strong style="background-color: lightyellow; color: yellow;">RECUPERAÇÃO</strong></p>
+                `;
+            }
             
+            if (notaMedia < 3) {
+                res.innerHTML += `
+                <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${notaMedia}</strong></p>
+                <p>Com média abaixo de 3,0, o aluno está <strong style="background-color: red; color: white;">REPROVADO</strong></p>
+                `;
+            }
         }
     </script>
 </body>
