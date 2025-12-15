@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #bot1 {
+            width: 200px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com Dados v2.0</h1>
+    <input type="button" value="Clique para começar" id="bot1" onclick="clicar()">
+
+    <section id="resultado">
+        <p>Aqui vai aparecer o resultado...</p>
+    </section>
+
+    <script>
+        function clicar() {
+            let inputNome = prompt('Qual é o seu nome?');
+            let res = document.querySelector('section#resultado');
+
+            res.innerHTML = `<p>Olá, <strong>${inputNome}!</strong> É um grande prazer te conhecer!</p>`;
+        }
+    </script>
+</body>
+</html>

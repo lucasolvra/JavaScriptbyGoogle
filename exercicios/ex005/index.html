@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #bot1 {
+            width: 200px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body onload="carregar()">
+    <h1>Trabalhando com números</h1>
+    <input type="button" value="Clique para calcular" id="bot1" onclick="calcular()">
+
+    <section id="resultado">
+        <p>O resultado vem aqui...</p>
+    </section>
+
+    <script>
+        function carregar() {
+            alert('Bem-vindo ao meu site!');
+            return;
+        }
+
+        function calcular() {
+            let inputNumero = prompt('Digite um número:');
+
+            let numero = parseFloat(inputNumero.replace(',','.'));
+
+            let numeroDobro = numero * 2;
+            let numeroMetade = numero / 2;
+
+            let res = document.querySelector('section#resultado');
+
+            res.innerHTML = `
+            <p>O dobro de ${numero} é ${numeroDobro} e a metade é ${numeroMetade}!</p>
+            `;
+        }
+    </script>
+</body>
+</html>
