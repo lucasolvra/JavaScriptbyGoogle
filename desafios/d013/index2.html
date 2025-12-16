@@ -67,21 +67,23 @@
 
             res.innerHTML = `<h2>Analisando a situação de ${inputNome}</h2>`;
 
-            if (notaMedia > 6) {
-                res.innerHTML += `
-                <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${notaMedia}</strong></p>
-                <p>Com média acima de 6,0, o aluno está <strong style="background-color: lightgreen; color: green;">APROVADO</strong></p>
-                `;
-            }else if (notaMedia >= 3) {
-                res.innerHTML += `
-                <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${notaMedia}</strong></p>
-                <p>Com média entre 3,0 e 6,0, o aluno está em <strong style="background-color: lightyellow; color: yellow;">RECUPERAÇÃO</strong></p>
-                `;
-            } else {
-                res.innerHTML += `
-                <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${notaMedia}</strong></p>
-                <p>Com média abaixo de 3,0, o aluno está <strong style="background-color: red; color: white;">REPROVADO</strong></p>
-                `;
+            switch (true) {
+                case notaMedia > 6:
+                    res.innerHTML += `
+                    <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${notaMedia}</strong></p>
+                    <p>Com média acima de 6,0, o aluno está <strong style="background-color: lightgreen; color: green;">APROVADO</strong></p>`;
+                    break;
+
+                case notaMedia <= 6 && notaMedia >= 3:
+                    res.innerHTML += `
+                    <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${notaMedia}</strong></p>
+                    <p>Com média entre 3,0 e 6,0, o aluno está em <strong style="background-color: lightyellow; color: yellow;">RECUPERAÇÃO</strong></p>`;
+                    break;
+
+                default:
+                    res.innerHTML += `
+                    <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${notaMedia}</strong></p>
+                    <p>Com média abaixo de 3,0, o aluno está <strong style="background-color: red; color: white;">REPROVADO</strong></p>`;
             }
         }
     </script>
