@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Quantity</title>
+</head>
+<body>
+    <h2>Cart Quantity</h2>
+    <button onclick="
+        console.log(`Cart quantity: ${quant}`);
+    ">Show Quantity</button>
+    <button onclick="
+        quant = quant +1
+
+        if (quant > 10) {
+            alert('The cart if full');
+            return;
+        } else {
+            console.log(`Cart quantity ${quant}`);
+        }
+    ">Add to Cart</button>
+    <button onclick="
+        quant = quant +2
+
+        if (quant > 10) {
+            alert('The cart is full');
+            return;
+        } else {
+            console.log(`Cart quantity ${quant}`);
+        }
+    ">+2</button>
+    <button onclick="
+        quant = quant +3
+
+        if (quant > 10) {
+            alert('The cart is full');
+            return;
+        } else {
+            console.log(`Cart quantity ${quant}`);
+        }
+    ">+3</button>
+    <button onclick="
+        quant = quant -1
+
+        if (quant < 0) {
+            alert('Not enough items in the cart');
+            return;
+        } else {
+            console.log(`Cart quantity ${quant}`);
+        }
+    ">Remove from cart</button>
+    <button onclick="
+        quant = quant -2
+
+        if (quant < 0) {
+            alert('Not enough items in the cart');
+            return;
+        } else {
+            console.log(`Cart quantity ${quant}`);
+        }
+    ">-2</button>
+    <button onclick="
+        quant = quant -3
+
+        if (quant < 0) {
+            alert('Not enough items in the cart');
+            return;
+        } else {
+            console.log(`Cart quantity ${quant}`);
+        }
+    ">-3</button>
+
+    <button onclick="
+        console.log(`Cart was reset.`);
+        quant = quant * 0;
+        console.log(`Cart quantity: ${quant}`);
+    ">Reset Cart</button>
+
+    <script>
+        let quant = 0;
+    </script>
+</body>
+</html>
