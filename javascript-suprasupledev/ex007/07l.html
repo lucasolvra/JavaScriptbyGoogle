@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Quantity</title>
+</head>
+<body>
+    <h2>Cart Quantity</h2>
+    <button onclick="
+        console.log(`Cart quantity: ${quant}`);
+    ">Show Quantity</button>
+    <button onclick="
+        updateCartQuantity(quant + 1);
+    ">Add to Cart</button>
+    <button onclick="
+        updateCartQuantity(quant + 2);
+    ">+2</button>
+    <button onclick="
+        updateCartQuantity(quant + 3);
+    ">+3</button>
+    <button onclick="
+        console.log(`Cart was reset.`);
+        quant = quant * 0;
+        console.log(`Cart quantity: ${quant}`);
+    ">Reset Cart</button>
+
+    <script>
+        let quant = 0;
+        
+        function updateCartQuantity(value) {
+            const conditionOver = quant >= 10;
+            const conditionBelow = quant < 0;
+            
+            if (conditionOver) {
+                alert('The cart is full');
+            } else if (conditionBelow) {
+                alert('Not enough products');
+                return;
+            }
+
+            quant = value;
+            console.log(`Cart quantity ${quant}`);
+        }
+    </script>
+</body>
+</html>
