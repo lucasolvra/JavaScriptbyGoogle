@@ -7,6 +7,7 @@
 </head>
 <body>
     <script>
+        /*
         let book = {
             fat: true,
             topic: "JavaScript"
@@ -15,6 +16,60 @@
         book.author = "Luquinhas"
 
         console.log(book)
+        */
+
+        /*
+        const product2 = {
+            name: 'shirt',
+            'delivery-time': '1 day',
+            rating: {
+                stars: 4.5,
+                count: 87
+            },
+            fun: function function1() {
+                console.log('function inside object');
+            }
+        };
+        console.log(product2);
+        console.log(product2.name);
+        console.log(product2['name']);
+        console.log(product2['delivery-time']);
+
+        console.log(product2.rating.count);
+
+        console.log(JSON.stringify(product2));
+        
+        const jsonString = JSON.stringify(product2);
+        console.log(JSON.parse(jsonString));
+        */
+
+        console.log('hello'.length)
+
+
+        const object4 = {
+            message: 'Good job!',
+            price: 799
+        };
+
+        // DESTRUCTING - EXTRAINDO VALORES DAS PROPRIEDADES DE UM OBJETO COM VARIÁVEL DO MESMO NOME, E SALVANDO NA VARIÁVEL
+        const { message, price } = object4;
+        console.log(message);
+        console.log(price);
+
+        const object5 = {
+            // message: message
+            // SHORTHAND PROPERTY - PROPERTY E VARIABLE DEVEM POSSUIR O MESMO NOME
+            message,
+            // method: function function1() {
+            //     console.log('method');
+            // }
+            // SHORTHAND METHOD - "FUNCTION" PODE SER IGNORADA, CHAMANDO A FUNCTION DIRETO PELO NOME DA PROPERTY ELA VIRA UMA FUNCTION
+            method() {
+                console.log('method');
+            }
+        };
+        console.log(object5);
+        object5.method();
     </script>
 </body>
 </html>
