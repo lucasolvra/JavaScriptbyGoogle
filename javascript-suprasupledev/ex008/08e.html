@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <script>
+        const product1 = {
+            name: 'Ursinho',
+            price: 1500
+        };
+
+        const product2 = {
+            name: 'Docinho',
+            price: 900
+        };
+
+        const p1 = JSON.stringify(product1);
+        const p2 = JSON.stringify(product2);
+
+        function isSameProduct(product1, product2) {
+            if (p1 == p2) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+
+
+        console.log(isSameProduct(product1, product2));
+    </script>
+</body>
+</html>
