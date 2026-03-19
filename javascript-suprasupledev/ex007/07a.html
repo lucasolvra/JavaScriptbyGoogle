@@ -8,12 +8,14 @@
 <body>
     <script>
         function greet(name) {
-            
+            //name === undefined ? console.log('Hi there!') : console.log(`Hello, ${name}!`)
+            //console.log(`Hello, ${name}!`)
+
             if (!name) {
-                name = 'there';
+                console.log('Hi there!');
+            } else {
+                console.log(`Hello, ${name}!`);
             }
-            
-            console.log(`Hello, ${name}!`);
         }
 
         greet();
