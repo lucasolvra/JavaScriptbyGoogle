@@ -14,12 +14,12 @@
     <button onclick="
       score.wins = 0;
       score.losses = 0;
-
+      console.log('Score reset');
       localStorage.removeItem('score');
     ">reset score</button>
     <script>
 
-      let score = JSON.parse(localStorage.setItem('score')) || {
+      let score = JSON.parse(localStorage.getItem('score')) || {
         wins: 0,
         losses: 0
       };
@@ -35,9 +35,9 @@
         const result = flip < 0.5 ? 'heads' : 'tails';
         console.log(guess === result ? 'You win!' : 'You lose!');
 
-        if (result === 'You win!') {
+        if (result === guess) {
           score.wins += 1;
-        } else if (result === 'You lose!') {
+        } else {
           score.losses += 1;
         }
 
