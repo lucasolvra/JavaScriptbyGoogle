@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Exercises</title>
+  </head>
+  <body>
+    <input class="js-text" onkeyup="
+      const textElement = document.querySelector('.js-text');
+      let text = textElement.value;
+      document.querySelector('.js-update-text').innerHTML = `${textElement.value}`;  
+    ">
+    <p class="js-update-text"></p>
+
+    <script>
+      
+      
+    </script>
+  </body>
+</html>

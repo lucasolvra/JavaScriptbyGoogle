@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Practice</title>
+  </head>
+  <body>
+    <button>9a</button>
+    <button class="js-done-button">9b</button>
+    <p></p>
+    <button onclick="
+      playerChoose('heads');
+    ">heads</button>
+    <button onclick="
+      playerChoose('tails');
+    ">tails</button>
+    <p class="js-chose-button"></p>
+
+    <input class="js-input-name" placeholder="Name" onkeydown="inputTextKeydown(event)">
+    <button onclick="submitName()">Submit</button>
+    <p class="js-display-name"></p>
+    <script>
+      console.log(document.querySelector('button'));
+      
+      document.querySelector('.js-done-button').innerHTML = '9b done!';
+
+      function inputTextKeydown(event) {
+        if (event.key === 'Enter'){
+        submitName();
+        };
+      }
+
+      function submitName() {
+        const nameElement = document.querySelector('.js-input-name');
+        let name = nameElement.value;
+
+        document.querySelector('.js-display-name').innerHTML = `Your name is: ${name}`;
+      }
+
+      function playerChoose(choose) {
+        if (choose === 'heads') {
+          document.querySelector('.js-chose-button').innerHTML = `You chose: ${choose}`;
+        } else if (choose === 'tails') {
+          document.querySelector('.js-chose-button').innerHTML = `You chose: ${choose}`;
+        }
+      }
+    </script>
+  </body>
+</html>

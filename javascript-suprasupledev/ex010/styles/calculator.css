@@ -1,0 +1,30 @@
+body {
+  font-family: Arial;
+  font-size: 45px;
+  background-color: black;
+  color: white;
+}
+
+p {
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.style-button {
+  font-size: 30px;
+  background-color: rgb(50, 50, 50);
+  color: white;
+  height: 60px;
+  width: 60px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.operators {
+  background-color: orange;
+}
+
+.clear-button {
+  font-size: 16px;
+}
