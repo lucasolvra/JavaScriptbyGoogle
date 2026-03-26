@@ -5,17 +5,15 @@
   </head>
   <body>
     <script>
-      const array = [];
-
       function getLastValue(array) {
-        console.log(array[array.length - 1]);
-        /*for (i = 0; i < array.length; i++) {
-          const value = array[i];
-          console.log(value);
-        }*/
+        const lastIndex = array.length - 1;
+        return array[lastIndex];
       }
-      
-      getLastValue(['hi', 'hello', 'good']);
-      </script>
+
+      console.log(getLastValue([1, 20, 22, 24, 5]));
+      console.log(getLastValue(['hi', 'good', 'job']));
+
+      //console.log(array);
+    </script>
   </body>
 </html>
