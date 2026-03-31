@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arrays & Loops</title>
+  </head>
+  <body>
+    <script>
+      let arrayStrings = ['opa', 'ce', 'ta', 'bão?'];
+
+      let index = -1;
+
+      for (let i = 0; i < arrayStrings.length; i++) {
+        if (arrayStrings[i] === 'bão?') {
+          index = i;
+        }
+      }
+
+      console.log(index);
+
+      arrayStrings = ['not', 'found'];
+      index = - 1;
+
+      for (let i = 0; i < arrayStrings.length; i++) {
+        if (arrayStrings[i] === 'opa') {
+          index = i;
+        }
+      }
+
+      console.log(index);
+    </script>
+  </body>
+</html>
