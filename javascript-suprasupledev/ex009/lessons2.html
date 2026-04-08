@@ -2,22 +2,70 @@
 <html>
   <head>
     <title>Lessons</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      .gaming-button {
+        font-weight: bold;
+        background-color: rgb(13, 13, 13);
+        color: white;
+        padding: 8px 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      .gaming-toggle {
+        font-weight: bold;
+        background-color: rgb(240, 240, 240);
+        color: black;
+        padding: 8px 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <input placeholder="Name" class="js-input-name" onkeydown="
+    <!-- <input placeholder="Name" class="js-input-name" onkeydown="
       if (event.key === 'Enter') {
         displayName();
       }  
     ">
     <button onclick="displayName()">Submit</button>
-    <p class="js-text-name"></p>
+    <p class="js-text-name"></p> -->
+
+    <!-- <input class="js-input-text" onkeyup="typeText()">
+    <p class="js-text-print"></p> -->
+
+    <button class="js-gaming-button gaming-button" onclick="clickToPlay()">Gaming</button>
     <script>
-      function displayName() {
+      /*function displayName() {
         const name = document.querySelector('.js-input-name');
         const text = name.value;
 
         const display = document.querySelector('.js-text-name')
           .innerHTML = `Your name is: ${text}`;
+      }*/
+
+      /*function typeText() {
+        const textElement = document.querySelector('.js-input-text');
+        const textValue = textElement.value;
+
+        const printElement = document.querySelector('.js-text-print');
+        const printText = printElement.innerHTML = `${textValue}`;
+      }*/
+     
+      const buttonElement = document.querySelector('.js-gaming-button');
+
+      function clickToPlay() {
+        if (!buttonElement.classList.contains('gaming-toggle')) {
+          buttonElement.classList.add('gaming-toggle');
+        } else {
+          buttonElement.classList.remove('gaming-toggle');
+        }
       }
     </script>
   </body>
