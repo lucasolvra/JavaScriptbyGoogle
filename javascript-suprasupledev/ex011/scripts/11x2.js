@@ -1,49 +1,63 @@
-const todoList = [{
+const todoList = JSON.parse(localStorage.getItem('todoDate')) || [{
+  name: 'make dinner',
+  dueDate: '28-09-1992'
+}, {
   name: 'watch youtube',
-  dueDate: '04-08-2026'
- }, {
-  name: 'wash dishes',
-  dueDate: '04-08-2026'
+  dueDate: '28-09-1992'
 }];
 
-displayList();
+renderTodoList()
+//saveToStorage()
 
-function displayList() {
-  
+function renderTodoList() {
+
   let todoListHTML = '';
-  
+
+  // LOOP THRU AN ARRAY
   for (let i = 0; i < todoList.length; i++) {
     const todoObject = todoList[i];
-    const { name, dueDate } = todoObject;
+    // TAKE NAME AND DUEDATE OUT OF "TODOLIST" OBJECT
+    const { name, dueDate } = todoObject; //DESTRUCTING
+    // GENERATING HTML
     const html = `
       <div>${name}</div>
       <div>${dueDate}</div>
       <button onclick="
         todoList.splice(${i}, 1);
-        displayList();
+        renderTodoList();
+        saveToStorage()
       " class="delete-todo-button">Delete</button>
     `;
     todoListHTML += html;
-    
-  }
-  document.querySelector('.js-display-list')
-  .innerHTML = todoListHTML;
-}
 
+  }
+  
+  
+  document.querySelector('.js-todo-list')
+  .innerHTML = todoListHTML;
+
+  //saveToStorage()
+}
 
 function addTodo() {
   const inputElement = document.querySelector('.js-name-input');
   const name = inputElement.value;
-
+  
   const dateInputElement = document.querySelector('.js-due-date-input');
   const dueDate = dateInputElement.value;
 
-  todoList.push({
+  todoList.push({ //SHORTHAND PROPERTY
     name,
     dueDate
-  });
+});
 
   inputElement.value = '';
 
-  displayList();
+  renderTodoList();
+
+  saveToStorage()
+}
+
+function saveToStorage() {
+  localStorage.setItem('todoDate', JSON.stringify(todoList));
 }
