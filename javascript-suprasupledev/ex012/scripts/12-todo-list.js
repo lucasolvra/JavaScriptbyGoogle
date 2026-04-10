@@ -17,17 +17,28 @@ function displayList() {
     const html = `
       <div>${name}</div>
       <div>${dueDate}</div>
-      <button onclick="
-        todoList.splice(${index}, 1);
-        displayList();
-      " class="delete-todo-button">Delete</button>
+      <button class="delete-todo-button js-delete-todo-button">Delete</button>
     `;
     todoListHTML += html;
   });
   
   document.querySelector('.js-display-list')
   .innerHTML = todoListHTML;
+
+  document.querySelector('.js-add-todo-button')
+    .addEventListener('click', () => {
+      addTodo()
+  });
+  
+  document.querySelectorAll('.js-delete-todo-button')
+    .forEach((deleteButton, index) => { //loop thru array (many buttons/same class)
+      deleteButton.addEventListener('click', () => {
+        todoList.splice(index, 1);
+        displayList();
+      })
+    });
 }
+
 
 
 function addTodo() {
