@@ -4,9 +4,7 @@
     <title>Exercise 12</title>
   </head>
   <body>
-    <!-- <button class="js-start-button" onclick="
-      start();  
-    ">Start</button> -->
+     <button class="js-start-button js-start-event">Start</button>
     <!-- <button class="js-add-button" onclick="addButton()">Add to cart</button>
     <p class="js-added"></p> -->
     <!-- <button onclick="
@@ -147,12 +145,55 @@
       console.log(countPositive([1, -3, 5]));
       console.log(countPositive([-2, 3, -5, 7, 10]));*/
 
-      const addNum = (array, num) => {
+      //EXERCISE 011
+      /*const addNum = (array, num) => {
         return array.map(value => value + num);
       };
 
       console.log(addNum([1, 2, 3,], 2));
-      console.log(addNum([-2, -1, 0, 99], 2));
+      console.log(addNum([-2, -1, 0, 99], 2));*/
+
+      //EXERCISE 012
+      /*const removeEggs = (foods) => {
+        return foods.filter(word => word !== 'egg');
+      };
+
+      console.log(removeEggs(['egg', 'apple', 'egg', 'egg', 'ham']));*/
+
+      //EXERCISE 013
+      /*const removeEggs = (foods) => {
+        let removedEggs = 0;
+
+        return foods.filter(word => {
+          if (word === 'egg' && removedEggs < 2) {
+            removedEggs++;
+            return false;
+          }
+          return true;
+        });
+      };
+
+      console.log(removeEggs(['egg', 'apple', 'egg', 'egg', 'ham']));*/
+
+      //EXERCISE 014
+      /*function start() {
+        let startElement = document.querySelector('.js-start-button');
+        
+        setTimeout(() => {
+          startElement.innerHTML = 'Finished';
+        }, 1000);
+      }*/
+
+      //EXERCISE 015
+      document.querySelector('.js-start-button')
+        .addEventListener('click', () => {
+          const startElement = document.querySelector('.js-start-button');
+  
+          setTimeout(() => {
+            startElement.innerHTML = 'Finished';
+          }, 1000);
+      });
+      
     </script>
   </body>
 </html>
