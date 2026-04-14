@@ -65,17 +65,40 @@
 
       console.log(countWords(['apple', 'grape', 'apple', 'apple']));*/
 
-      function getLastValue(array) {
-        let lastIndex;
+      //11B
+      /*function getLastValue(array) {
 
-        array.forEach((value) => {
-          lastIndex
-        });
+        const lastIndex = array.length - 1;
+        return array[lastIndex];
 
-        return lastIndex;
       }
       console.log(getLastValue([1, 20, 22, 24, 5]));
-      console.log(getLastValue(['hi', 'hello', 'good']));
+      console.log(getLastValue(['hi', 'hello', 'good']));*/
+
+      //11C
+      /*function arraySwap(array) {
+        const firstIndex = [0];
+        const lastIndex = [array.length - 1];
+
+        const firstValue = array[firstIndex];
+        const lastValue = array[lastIndex];
+
+        array[firstIndex] = lastValue;
+        array[lastIndex] = firstValue;
+
+        return array;
+      }
+
+      console.log(arraySwap([1, 20, 22, 24, 5]));
+      console.log(arraySwap(['hi', 'hello', 'good']));*/
+
+      //11G
+      const num = [1, 2, 3];
+
+      for (let i = 0; i < num; i++) {
+        //const plusOne = num[i] + 1;
+        console.log('s1');
+      }
     </script>
   </body>
 </html>
