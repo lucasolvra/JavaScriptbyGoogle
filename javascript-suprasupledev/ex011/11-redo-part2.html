@@ -93,12 +93,131 @@
       console.log(arraySwap(['hi', 'hello', 'good']));*/
 
       //11G
-      const num = [1, 2, 3];
+      /*const num = [1, 2, 3];
+      const result = [];
 
-      for (let i = 0; i < num; i++) {
-        //const plusOne = num[i] + 1;
-        console.log('s1');
+      for (let i = 0; i < num.length; i++) {
+        result.push(num[i] + 1);
       }
+      console.log(result);*/
+
+      //11H
+      /*function addOne(array) {
+        const result = [];
+
+        array.forEach(value => {
+          result.push(value + 1);
+        });
+        return result;
+      }
+
+      console.log(addOne([1, 2, 3]));
+      console.log(addOne([-2, -1, 0, 99]));*/
+
+      /*const addOne = array => {
+        const result = [];
+
+        array.forEach(value => {
+          result.push(value + 1);
+        });
+        return result;
+      }
+
+      console.log(addOne([1, 2, 3]));
+      console.log(addOne([-2, -1, 0, 99]));*/
+
+      //11I
+      /*const addNum = (array, num) => {
+        const result = [];
+
+        array.forEach(value => {
+          result.push(value + num);
+        });
+        return result;
+      }
+
+      console.log(addNum([1, 2, 3], 2));
+      console.log(addNum([1, 2, 3], 3));
+      console.log(addNum([-2, -1, 0, 99], 2));*/
+
+      //11J
+      /*const addArrays = (array1, array2) => {
+        const result = [];
+
+        array1.forEach((value, index) => {
+          result.push(value + array2[index]);
+        });
+        return result;
+      }
+
+      console.log(addArrays([1, 1, 2], [1, 1, 3]));
+      console.log(addArrays([1, 2, 3], [4, 5, 6]));*/
+
+      //11K
+      /*const countPositive = (nums) => {
+        let result = 0;
+
+        nums.forEach(value => {
+          if (value > result) {
+            result++;
+          }
+        });
+        return result;
+      }
+
+      console.log(countPositive([1, -3, 5]));
+      console.log(countPositive([-2, 3, -5, 7, 10]));*/
+
+      //11O
+      /*let words = ['hello', 'world', 'search', 'good'];
+      let result = -1;
+
+      words.forEach((loop, index) => {
+        if (loop === 'search') {
+          result = index;
+        }
+      });
+
+      console.log(result);*/
+
+      //11P
+      /*let words = ['hello', 'world', 'search', 'good', 'search'];
+      let result = -1;
+
+      for (let i = 0; i < words.length; i++) {
+        if (words[i] === 'search') {
+          result = i;
+          break;
+        }
+      }*/
+      
+      /*words.forEach((loop, index) => {
+        if (loop === 'search') {
+          result = index;
+        }
+      });*/
+
+      const findIndex = (array, word) => {
+        let result = -1;
+
+        for (let i = 0; i < array.length; i++) {
+          //const value = array[i];
+          if (array[i] === word) {
+            result = i;
+            break;
+          }
+        }
+
+        /*array.forEach((value, index) => {
+          if (value === word) {
+            result = index;
+          }
+        });*/
+        return result;
+      }
+
+      console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
+      console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));
     </script>
   </body>
 </html>
