@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Exercises</title>
+  </head>
+  <body>
+    <script>
+      //12A
+      const add = () => {
+        let i = 0;
+
+        while (i < 2) {
+          console.log(2 + 3);
+          i++
+        }
+      }
+
+      add();
+
+      //12B
+      const runTwice = (fun) => {
+
+        for (let i = 0; i < 2; i++) {
+          console.log(fun);
+        }
+      }
+
+      runTwice('12b');
+      runTwice(add);
+    </script>
+  </body>
+</html>

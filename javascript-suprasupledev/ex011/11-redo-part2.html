@@ -197,7 +197,8 @@
         }
       });*/
 
-      const findIndex = (array, word) => {
+      //11Q
+      /*const findIndex = (array, word) => {
         let result = -1;
 
         for (let i = 0; i < array.length; i++) {
@@ -208,16 +209,62 @@
           }
         }
 
-        /*array.forEach((value, index) => {
-          if (value === word) {
-            result = index;
-          }
-        });*/
         return result;
       }
 
       console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
-      console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));
+      console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));*/
+
+      //11R
+      /*const removeEgg = (foods) => {
+        const result = [];
+
+        for (let i = 0; i < foods.length; i++) {
+          if (foods[i] === 'egg') {
+            continue;
+          }
+          result.push(foods[i]);
+        }
+        return result;
+      }
+
+      console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));*/
+
+      //11S
+      /*const removeEgg = (foods) => {
+        const result = [];
+
+        for (let i = 0; i < foods.length; i++) {
+          if (foods[i] === 'egg') {
+            continue;
+          }
+          result.push(foods[i]);
+        }
+        return result;
+      }
+
+      console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));*/
+
+      //11T
+      /*const removeEgg = (foods) => {
+        const result = [];
+        let eggsRemoved = 0;
+
+        for (let i = 0; i < foods.length; i++) {
+          if (foods[i] === 'egg' && eggsRemoved < 2) {
+            eggsRemoved++;
+            continue;
+          }
+          result.push(foods[i]);
+        }
+        return result;
+      }
+
+      console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));*/
+
+      //11
+
+
     </script>
   </body>
 </html>
