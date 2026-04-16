@@ -7,25 +7,22 @@
     <script>
       //12A
       const add = () => {
-        let i = 0;
-
-        while (i < 2) {
-          console.log(2 + 3);
-          i++
-        }
+        console.log(2 + 3);
       }
 
       add();
+      add();
 
       //12B
-      const runTwice = (fun) => {
-
-        for (let i = 0; i < 2; i++) {
-          console.log(fun);
-        }
+      function runTwice(fun) {
+        fun();
+        fun();
       }
 
-      runTwice('12b');
+      runTwice(function() {
+        console.log('12b');
+      });
+
       runTwice(add);
     </script>
   </body>
