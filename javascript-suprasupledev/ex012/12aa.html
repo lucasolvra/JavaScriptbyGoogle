@@ -19,11 +19,10 @@
         fun();
       }
 
-      runTwice(function() {
-        console.log('12b');
-      });
-
+      runTwice(() => { console.log('12b') });
       runTwice(add);
+
+    
     </script>
   </body>
 </html>

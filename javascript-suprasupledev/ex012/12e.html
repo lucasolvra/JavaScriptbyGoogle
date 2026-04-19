@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Exercises</title>
+  </head>
+  <body>
+    <button class="js-start-button" onclick="updateButton()">Add to cart</button>
+    <div class="js-added"></div>
+    <script>
+      function updateButton() {
+        //const addCart = document.querySelector('.js-start-button');
+        const added = document.querySelector('.js-added');
+
+        added.innerHTML = `<p>Added</p>`;
+        
+        setTimeout(() => {
+          added.innerHTML = '';
+        }, 2000);
+      }
+      
+    </script>
+  </body>
+</html>
